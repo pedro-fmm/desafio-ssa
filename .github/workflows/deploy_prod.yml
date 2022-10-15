@@ -42,7 +42,7 @@ jobs:
                           "registry_type": "DOCKER_HUB",
                           "registry": "pedrofmm",
                           "repository": "desafio-ssa",
-                          "tag": "prod-${{ github.run_number }}"
+                          "tag": "prod-14"
                         }
                   }]'
 
