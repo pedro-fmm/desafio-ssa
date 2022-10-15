@@ -8,4 +8,4 @@ COPY . /api_hcm
 
 RUN pip install --upgrade pip --no-cache-dir -r requirements.txt
 
-CMD ["python", "src/main.py"]
+CMD ["python", "src/run.py"]
