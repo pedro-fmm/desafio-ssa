@@ -38,37 +38,18 @@ jobs:
         with:
           app_name: clownfish-app
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-          images: '[                
+          images: '[
                     {
-                      "name": "clownfish-app",
-                      "image":{
-                        "registry_type": "pedrofmm",
-                        "registry": "pedrofmm",
-                        "repository": "desafio-ssa",
-                        "tag": $IMAGE_TAG
-                      },
-                      "envs": {"API_ENDPOINT": "https://api.mockytonk.com"},
-                      "http_port": "5000"
+                        "name":"clownfish-app",
+                        "image":{
+                          "registry_type":"pedrofmm",
+                          "registry":"pedrofmm",
+                          "repository":"desafio-ssa",
+                          "tag":"$IMAGE_TAG"
+                        },
+                        "envs":{
+                          "API_ENDPOINT":"https://api.mockytonk.com"
+                        },
+                        "http_port":"5000"
                     }
                   ]'
-
-                  name: clownfish-app
-region: nyc
-services:
-- envs:
-  - key: API_ENDPOINT
-    scope: RUN_AND_BUILD_TIME
-    value: https://api.mockytonk.com
-  http_port: 5000
-  image:
-    registry: pedrofmm
-    registry_type: DOCKER_HUB
-    repository: desafio-ssa
-    tag: prod-5
-  instance_count: 1
-  instance_size_slug: basic-xxs
-  name: pedrofmm-desafio-ssa
-  routes:
-  - path: /
-
-
