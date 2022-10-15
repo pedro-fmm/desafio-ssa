@@ -18,14 +18,17 @@ def baterPonto():
     data = request.get_json(force=True)
 
     try:
-        include_at = data.get('includeAt')
-        employeeId = data.get('employeeId')
-        employerId = data.get('employerId')
-    except:
-        return {'status': 422, 'response': 'Preencha todos os campos'}, 422 
+        include_at = data.get('includedAt', None)
+        employeeId = data.get('employeeId', None)
+        employerId = data.get('employerId', None)
+
+        if include_at == None or employeeId == None or employerId == None:
+            return {'status': 422, 'response': 'Preencha todos os campos'}, 422 
+    except Exception as e:
+        print(e)
         
     request_body = {
-        'includeAt': include_at,
+        'includedAt': include_at,
         'employeeId': employeeId,
         'employerId': employerId
     }
