@@ -36,14 +36,24 @@ jobs:
         with:
           app_name: clownfish-app
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-          images: '[{
-                    "name": "pedrofmm-desafio-ssa",
-                    "image": {
-                          "registry_type": "DOCKER_HUB",
-                          "registry": "pedrofmm",
-                          "repository": "desafio-ssa",
-                          "tag": "prod-14"
-                        }
-                  }]'
-
-#
+          run: |
+          """
+            name: clownfish-app
+            region: nyc
+            services:
+            - envs:
+              - key: API_ENDPOINT
+                scope: RUN_AND_BUILD_TIME
+                value: https://api.mockytonk.com
+              http_port: 5000
+              image:
+                registry: pedrofmm
+                registry_type: DOCKER_HUB
+                repository: desafio-ssa
+                tag: prod-5
+              instance_count: 1
+              instance_size_slug: basic-xxs
+              name: pedrofmm-desafio-ssa
+              routes:
+              - path: /
+          """ > app.yaml && ls -lah && doctl apps update clownfish-app --spec app.yaml 
