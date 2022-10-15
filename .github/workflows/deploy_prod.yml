@@ -40,7 +40,7 @@ jobs:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
           images: '[
                     {
-                        "name":"clownfish-app",
+                        "name":"pedrofmm-desafio-ssa",
                         "image":{
                           "registry_type":"pedrofmm",
                           "registry":"pedrofmm",
