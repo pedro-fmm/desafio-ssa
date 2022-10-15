@@ -34,13 +34,13 @@ jobs:
       - name: DigitalOcean App Platform deployment
         env:
           IMAGE_TAG: prod-${{ github.run_number }}
-        uses: digitalocean/app_action@v1.0.0 # replace this with current version from https://github.com/digitalocean/app_action/releases
+        uses: digitalocean/app_action@v1.1.14
         with:
           app_name: clownfish-app
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
           images: '[                
                     {
-                      "name": "sample-add",
+                      "name": "clownfish-app",
                       "image":{
                         "registry_type": "pedrofmm",
                         "registry": "pedrofmm",
