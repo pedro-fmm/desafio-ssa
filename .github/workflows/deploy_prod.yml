@@ -36,15 +36,14 @@ jobs:
         with:
           app_name: clownfish-app
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-          images: '[
-                    {
-                        "name":"pedrofmm-desafio-ssa",
-                        "image":{
-                          "registry_type":"pedrofmm",
-                          "registry":"pedrofmm",
-                          "repository":"desafio-ssa",
-                          "tag":"prod-${{ github.run_number }}"
+          images: '[{
+                    "name": "pedrofmm-desafio-ssa",
+                    "image": {
+                          "registry_type": "DOCKER_HUB",
+                          "registry": "pedrofmm",
+                          "repository": "desafio-ssa",
+                          "tag": "prod-${{ github.run_number }}"
                         }
-                    }
-                  ]'
+                  }]'
+
 #
