@@ -37,7 +37,7 @@ jobs:
           app_name: clownfish-app
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
           run: |
-          '
+          "
             name: clownfish-app
             region: nyc
             services:
@@ -56,4 +56,4 @@ jobs:
               name: pedrofmm-desafio-ssa
               routes:
               - path: /
-          ' > app.yaml && ls -lah && doctl apps update clownfish-app --spec app.yaml 
+          " > app.yaml && ls -lah && doctl apps update clownfish-app --spec app.yaml 
