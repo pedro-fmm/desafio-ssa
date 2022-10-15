@@ -34,7 +34,7 @@ jobs:
       - name: DigitalOcean App Platform deployment
         env:
           IMAGE_TAG: prod-${{ github.run_number }}
-        uses: digitalocean/app_action@v1.1.14
+        uses: digitalocean/app_action@v1.0.0
         with:
           app_name: clownfish-app
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
