@@ -32,9 +32,9 @@ jobs:
           echo "::set-output name=image::$REGISTRY/$REPOSITORY:$IMAGE_TAG"
 
       - name: DigitalOcean App Platform deployment
-        uses: digitalocean/app_action@v1.0.0 # replace this with current version from https://github.com/digitalocean/app_action/releases
         env:
           IMAGE_TAG: prod-${{ github.run_number }}
+        uses: digitalocean/app_action@v1.0.0 # replace this with current version from https://github.com/digitalocean/app_action/releases
         with:
           app_name: clownfish-app
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
@@ -49,6 +49,7 @@ jobs:
                       },
                       "envs": {"API_ENDPOINT": "https://api.mockytonk.com"},
                       "http_port": "5000"
+                    }
                   ]'
 
                   name: clownfish-app
