@@ -31,13 +31,13 @@ jobs:
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$REGISTRY/$REPOSITORY:$IMAGE_TAG"
 
-      - name: DigitalOcean App Platform deployment
-        uses: digitalocean/app_action@v1.0.0
-        with:
-          app_name: desafio-ssa
-          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-          images: '[{
-                    "name": "pedrofmm-desafio-ssa",
-                    "repository": "pedrofmm/desafio-ssa",
-                    "tag": "prod-${{ github.run_number }}"
-                  }]'
+      # - name: DigitalOcean App Platform deployment
+      #   uses: digitalocean/app_action@v1.0.0
+      #   with:
+      #     app_name: desafio-ssa
+      #     token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+      #     images: '[{
+      #               "name": "pedrofmm-desafio-ssa",
+      #               "repository": "pedrofmm/desafio-ssa",
+      #               "tag": "prod-${{ github.run_number }}"
+      #             }]'
