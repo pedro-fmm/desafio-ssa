@@ -1,6 +1,7 @@
 from flask_restful import Resource
 from flask import request
 import requests
+from datetime import datetime
 
 from .set_envs import API_URL
 
@@ -12,6 +13,8 @@ class BaterPonto(Resource):
         data = request.get_json(force=True)
 
         include_at = data.get('includedAt', None)
+        if include_at == None:
+            include_at = datetime.timestamp(datetime.now())
         employeeId = data.get('employeeId', None)
         employerId = data.get('employerId', None)
 
